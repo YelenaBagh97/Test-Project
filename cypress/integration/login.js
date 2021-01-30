@@ -14,3 +14,8 @@ it('should successfully login', () => {
     cy.getCardHeaderTxt().should('contain', 'Dashboard')
     cy.getCardBodyTxt().should('contain', 'You are logged in!')
 })
+
+afterEach(() => {
+    cy.clickOnNavBar();
+    cy.clickLogoutBtn();
+})

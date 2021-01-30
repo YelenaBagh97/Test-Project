@@ -10,9 +10,14 @@ it('should successfully register', function () {
     cy.clickRegistrationBtn();
     cy.fillInName(name);
     cy.fillInEmail(email);
-    cy.fillInPassword(pass);
+    cy.getPasswordField().first().type(pass);
     cy.confirmPassword(pass);
     cy.clickSubmitBtn();
     cy.getCardHeaderTxt().should('contain', 'Verify Your Email Address')
     cy.getCardBodyTxt().should('contain', 'Before proceeding, please check your email for a verification link.')
 });
+
+afterEach(() => {
+    cy.clickOnNavBar();
+    cy.clickLogoutBtn();
+})

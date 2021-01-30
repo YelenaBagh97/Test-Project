@@ -20,3 +20,8 @@ it('should successfully reset password', () => {
     cy.getPasswordChangeTxt().should('contain', 'Password successfully changed')
 
 });
+
+afterEach(() => {
+    cy.clickOnNavBar();
+    cy.clickLogoutBtn();
+})
